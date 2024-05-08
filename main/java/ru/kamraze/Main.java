@@ -56,10 +56,14 @@ public class Main {
 // Цикл проходится по каждому файлу в списке файлов filesToZip.
             for (File fileToZip : filesToZip) {
 // Проверяем, существует ли текущий файл, и если нет, выводим сообщение и переходим к следующему файлу.
-                if (!fileToZip.exists()) {
+                if (!fileToZip.exists())  {
                     System.err.println("File not found: " + fileToZip.getAbsolutePath());
                     continue;
-                }
+                };
+                if (fileToZip.getName().equals("SaveGames.zip")) {
+                    continue;
+                };
+
 // Открываем поток для чтения содержимого файла fileToZip с помощью FileInputStream
                 try (FileInputStream fis = new FileInputStream(fileToZip)) {
 // Создаем новую запись ZIP с именем текущего файла fileToZip.
